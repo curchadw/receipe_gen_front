@@ -20,6 +20,23 @@ class RecipeInput extends Component{
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
+    handleNameChange(event){
+        this.setState({name:event.target.value})
+    }
+
+    handleIngChange(event){
+        this.setState({ingredients:event.target.value})
+    }
+
+    handleChefChange(event){
+        this.setState({chef_name:event.target.value})
+    }
+
+    handleOriginChange(event){
+        this.setState({origin:event.target.value})
+    }
+
+
     handleChange(keyName, event){
         this.setState({ [keyName]: event.target.value})
     }

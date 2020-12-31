@@ -20,11 +20,11 @@ class RecipeContainer extends Component{
 }
 
 
-const mapStateToProps=({ recipes }) => ({ recipes })
+// const mapStateToProps=({ recipes }) => ({ recipes })
 const mapDispatchToProps= dispatch =>({
     addRecipe: recipe => dispatch({type: 'Add_Recipe', recipe}),
     deleteRecipe: id => dispatch({type: 'Delete_Recipe', id})
 })
 
 
-export default connect(mapStateToProps,mapDispatchToProps)(RecipeContainer)
+export default connect(null,mapDispatchToProps)(RecipeContainer)

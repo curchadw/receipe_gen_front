@@ -2,14 +2,14 @@ import React, {Component} from 'react';
 import Recipe from './Recipe'
 
 class RecipeList extends Component {
-  listRecipes = () => {
-    return this.props.recipes.map(recipe => <Recipe key={recipe.id} name={recipe.name}  />)
-  }
+  // listRecipes = () => {
+  //   return this.props.recipes.map(recipe => <Recipe key={recipe.id} name={recipe.name}  />)
+  // }
 
   render() {
     return (
       <div>
-        {this.listRecipes()}
+        {/* {this.listRecipes()} */}
       </div>
     )
   }
