@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import RecipeList from '../components/RecipeList'
 import RecipeInput from '../components/RecipeInput'
+import { connect } from 'react-redux'
+
 class RecipeContainer extends Component{
     constructor(props){
         super(props)

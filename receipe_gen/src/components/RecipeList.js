@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import Recipe from 
+import Recipe from './Recipe'
 
 class RecipeList extends Component {
   listRecipes = () => {
