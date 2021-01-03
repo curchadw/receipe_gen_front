@@ -25,7 +25,7 @@ class RecipeInput extends Component{
         fetch(CATAGOREIS_URL)
         .then(resp => resp.json())
         .then(data => {
-            initialCats = data.results.map((catagory) => {
+            initialCats = data.map((catagory) => {
                 return catagory
             })
             console.log(initialCats)
