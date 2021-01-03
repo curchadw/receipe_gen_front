@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { DropDownList } from '@progress/kendo-react-dropdowns'
+import  Catagories  from './Catagories.js'
 
 class RecipeInput extends Component{
     constructor(props){
@@ -13,11 +13,26 @@ class RecipeInput extends Component{
             origin: '',
         }
 
-        this.handleNameChange = this.handleNameChange.bind(this,'name');
-        this.handleIngChange = this.handleIngChange.bind(this,'ingredients');
-        this.handleChefChange = this.handleChefChange.bind(this,'chef_name');
-        this.handleOriginChange = this.handleOriginChange.bind(this,'origin');
-        this.handleSubmit = this.handleSubmit.bind(this);
+        
+    }
+
+    
+
+    componentDidMount(){
+        let initialCats = [];
+        const BASE_URL = `http://localhost:10524`
+        const CATAGOREIS_URL =`${BASE_URL}/catagories`
+        fetch(CATAGOREIS_URL)
+        .then(resp => resp.json())
+        .then(data => {
+            initialCats = data.results.map((catagory) => {
+                return catagory
+            })
+            console.log(initialCats)
+                this.setState({
+                    catagories: initialCats,
+                })   
+            });
     }
 
     handleNameChange(event){
@@ -53,19 +68,30 @@ class RecipeInput extends Component{
      })
     }
 
+    
+        
+
     render(){
         return(
             <div>
                 <form onSubmit={this.handleSubmit}>
-                    <DropDownList data={this.catagories}/>
+                    <Catagories catagories={this.state.catagories}/>
+                    <div>
                     <label for='name'>Recipe Name:</label>
-                    <input type='text' value={this.state.name} onChange={this.handleNameChange} />
+                    <input type='text' value={this.state.name} onChange={this.handleNameChange.bind(this)} />
+                    </div>
+                    <div>
                     <label for='name'>Country Origin:</label>
-                    <input type='text' value={this.state.origin} onChange={this.handleOriginChange} />
+                    <input type='text' value={this.state.origin} onChange={this.handleOriginChange.bind(this)} />
+                    </div>
+                    <div>
                     <label for='name'>Chef Name:</label>
-                    <input type='text' value={this.state.chef_name} onChange={this.handleChefChange} />
+                    <input type='text' value={this.state.chef_name} onChange={this.handleChefChange.bind(this)} />
+                    </div>
+                    <div>
                     <label for='name'>Ingredients:</label>
-                    <input type='textarea' value={this.state.ingredients} onChange={this.handleIngChange} />
+                    <input type='textarea' value={this.state.ingredients} onChange={this.handleIngChange.bind(this)} />
+                    </div>
                     <input value='submit' type='submit'/>
                 </form>
             </div>
