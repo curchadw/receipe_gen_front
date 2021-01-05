@@ -61,6 +61,7 @@ class RecipeInput extends Component{
         this.props.addRecipe(this.state)
         this.setState({
         catagoryId: this.props.catagoryId,
+        catagories: this.state.catagories,
         name:'',
         ingredients: '',
         chef_name: '',
@@ -90,7 +91,7 @@ class RecipeInput extends Component{
                     </div>
                     <div>
                     <label for='name'>Ingredients:</label>
-                    <input type='textarea' value={this.state.ingredients} onChange={this.handleIngChange.bind(this)} />
+                    <textarea value={this.state.ingredients} onChange={this.handleIngChange.bind(this)} />
                     </div>
                     <input value='submit' type='submit'/>
                 </form>

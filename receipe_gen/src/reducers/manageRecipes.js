@@ -15,6 +15,7 @@ export default function manageRecipes(state={
                 chef_name: action.chef_name,
                 origin: action.origin,
                 catagoryId: action.catagoryId,
+                catagories: action.catagories,
                 id: cuidFn()
             }
 
