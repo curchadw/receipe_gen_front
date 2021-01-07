@@ -35,5 +35,8 @@ export default function manageRecipes(state={
                 ...state,
                 catagories: [...state.catagories, catagory],
             }
+        default:
+            return state
+        
     }
 }

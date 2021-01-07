@@ -9,37 +9,40 @@ class RecipeContainer extends Component{
         super(props)
     }
 
-
+    
     componentDidMount(){
+        
         this.props.postRecipes()
+        
     }
 
     render(){
         return (
             <div>
-               <RecipeInput addRecipe={this.props.addRecipe}/> 
-               <RecipeList recipes={this.props.recipes} deleteRecipe={this.props.deleteRecipe}/>
+               <RecipeInput addRecipe={this.props.addRecipe} /> 
+               <RecipeList recipes={this.props.recipes} deleteRecipe={this.props.deleteRecipe} />
             </div>
         )
     }
 
+    
+
 }
 
-
-//const mapStateToProps=({ recipes }) => ({ recipes })
 const mapStateToProps = state =>{
     return{
-        recipes: state.recipes,
+        recipes: state.recipes
     }
 }
 
 
 const mapDispatchToProps= dispatch =>{
     return{
-    addRecipe: () => dispatch(postRecipes()),
-    deleteRecipe: id => dispatch({type: 'Delete_Recipe', id})
+    postRecipes: () => dispatch(postRecipes())
+    // deleteRecipe: id => dispatch({type: 'Delete_Recipe', id})
     }
 }
+
 
 
 export default connect(mapStateToProps,mapDispatchToProps)(RecipeContainer)

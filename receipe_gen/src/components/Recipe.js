@@ -6,6 +6,7 @@ class Recipe extends Component {
     render(){
         return(
             <h1>Testing</h1>
+            
         )
     }
 
