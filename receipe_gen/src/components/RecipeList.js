@@ -1,21 +1,27 @@
 import React, {Component} from 'react';
-import Recipe from './Recipe'
-import { Route } from 'react-router-dom'
+
+import { getRecipes } from '../actions/getRecipes.js'
+
 
 class RecipeList extends Component {
-  listRecipes = () => {
-    return this.props.recipes.map(recipe => <Recipe key={recipe.id} name={recipe.name}  />)
+  
+  componentDidMount(){
+    getRecipes()
   }
 
- 
-
-  render() {
-    return (
-      <div>
-        {this.listRecipes()}
-      </div>
-    )
+render() {
+    
+   return (
+    <div>
+     {getRecipes}
+    </div>
+   )
+    
   }
-}
+
+
+
+
+ }
 
 export default RecipeList;

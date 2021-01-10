@@ -1,12 +1,13 @@
 import React, { Component } from 'react'
-import  Catagories  from './Catagories.js'
+import  Categories  from './Categories.js'
 
 class RecipeInput extends Component{
     constructor(props){
         super(props)
 
         this.state = {
-            catagories: [],
+            categories: [],
+            categoryId: '',
             name:'',
             ingredients: '',
             chef_name: '',
@@ -21,47 +22,47 @@ class RecipeInput extends Component{
     componentDidMount(){
         let initialCats = [];
         const BASE_URL = `http://localhost:10524`
-        const CATAGOREIS_URL =`${BASE_URL}/catagories`
-        fetch(CATAGOREIS_URL)
+        const CATEGOREIS_URL =`${BASE_URL}/categories`
+        fetch(CATEGOREIS_URL)
         .then(resp => resp.json())
         .then(data => {
-            initialCats = data.map((catagory) => {
-                return catagory
+            
+            initialCats = data.map((category) => {
+                return category
             })
             console.log(initialCats)
                 this.setState({
-                    catagories: initialCats,
+                    categories: initialCats,
                 })   
             });
     }
 
-    handleNameChange(event){
+    handleNameChange = (event) =>{
         this.setState({name:event.target.value})
     }
 
-    handleIngChange(event){
+    handleIngChange = (event) => {
         this.setState({ingredients:event.target.value})
     }
 
-    handleChefChange(event){
+    handleChefChange = (event) =>{
         this.setState({chef_name:event.target.value})
     }
 
-    handleOriginChange(event){
+    handleOriginChange = (event) => {
         this.setState({origin:event.target.value})
     }
 
 
-    handleChange(keyName, event){
+    handleChange = (keyName, event) =>{
         this.setState({ [keyName]: event.target.value})
     }
 
-    handleSubmit(event){
+    handleSubmit = (event) =>{
         event.preventDefault();
-        this.props.addRecipe(this.state)
+        this.props.postRecipes(this.state)
         this.setState({
-        catagoryId: this.props.catagoryId,
-        catagories: this.state.catagories,
+        categoryId:'',    
         name:'',
         ingredients: '',
         chef_name: '',
@@ -76,7 +77,7 @@ class RecipeInput extends Component{
         return(
             <div>
                 <form onSubmit={this.handleSubmit}>
-                    <Catagories catagories={this.state.catagories}/>
+                    <Categories categories={this.state.categories}/>
                     <div>
                     <label for='name'>Recipe Name:</label>
                     <input type='text' value={this.state.name} onChange={this.handleNameChange.bind(this)} />
