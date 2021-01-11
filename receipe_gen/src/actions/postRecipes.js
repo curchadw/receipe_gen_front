@@ -1,6 +1,6 @@
 // import Recipe from '../component/Recipe.js'
 
-export const postRecipes=(recipe)=>{
+export const postRecipes = (recipe)=>{
     const BASE_URL = `http://localhost:10524`
     const RECIPES_URL =`${BASE_URL}/recipes`
 

@@ -1,18 +1,23 @@
 import React, { Component } from 'react'
 import  Categories  from './Categories.js'
 
+
+
 class RecipeInput extends Component{
     constructor(props){
         super(props)
-
         this.state = {
             categories: [],
-            categoryId: '',
             name:'',
             ingredients: '',
             chef_name: '',
-            origin: '',
+            origin: ''
         }
+        this.handleNameChange.bind(this)
+        this.handleOriginChange.bind(this)
+        this.handleChefChange.bind(this)
+        this.handleIngChange.bind(this)
+
 
         
     }
@@ -62,7 +67,7 @@ class RecipeInput extends Component{
         event.preventDefault();
         this.props.postRecipes(this.state)
         this.setState({
-        categoryId:'',    
+        categoryId: '',    
         name:'',
         ingredients: '',
         chef_name: '',
@@ -80,19 +85,19 @@ class RecipeInput extends Component{
                     <Categories categories={this.state.categories}/>
                     <div>
                     <label for='name'>Recipe Name:</label>
-                    <input type='text' value={this.state.name} onChange={this.handleNameChange.bind(this)} />
+                    <input type='text' value={this.state.name} onChange={this.handleNameChange} />
                     </div>
                     <div>
                     <label for='name'>Country Origin:</label>
-                    <input type='text' value={this.state.origin} onChange={this.handleOriginChange.bind(this)} />
+                    <input type='text' value={this.state.origin} onChange={this.handleOriginChange} />
                     </div>
                     <div>
                     <label for='name'>Chef Name:</label>
-                    <input type='text' value={this.state.chef_name} onChange={this.handleChefChange.bind(this)} />
+                    <input type='text' value={this.state.chef_name} onChange={this.handleChefChange} />
                     </div>
                     <div>
                     <label for='name'>Ingredients:</label>
-                    <textarea value={this.state.ingredients} onChange={this.handleIngChange.bind(this)} />
+                    <textarea value={this.state.ingredients} onChange={this.handleIngChange} />
                     </div>
                     <input value='submit' type='submit'/>
                 </form>
