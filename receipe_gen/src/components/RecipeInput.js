@@ -7,7 +7,8 @@ class RecipeInput extends Component{
     constructor(props){
         super(props)
         this.state = {
-            categories: [],
+            category: [],
+            categoryId: '',
             name:'',
             ingredients: '',
             chef_name: '',
@@ -37,7 +38,7 @@ class RecipeInput extends Component{
             })
             console.log(initialCats)
                 this.setState({
-                    categories: initialCats,
+                    category: initialCats,
                 })   
             });
     }
@@ -82,7 +83,7 @@ class RecipeInput extends Component{
         return(
             <div>
                 <form onSubmit={this.handleSubmit}>
-                    <Categories categories={this.state.categories}/>
+                    <Categories category={this.state.category}/>
                     <div>
                     <label for='name'>Recipe Name:</label>
                     <input type='text' value={this.state.name} onChange={this.handleNameChange} />

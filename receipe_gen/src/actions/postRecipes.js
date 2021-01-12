@@ -13,7 +13,7 @@ export const postRecipes = (recipe)=>{
         "Content-type": "application/json"
      }
     }
-    
+    //category field
     return(dispatch)=>{
     fetch(RECIPES_URL,config)
     .then(response => 
@@ -22,11 +22,12 @@ export const postRecipes = (recipe)=>{
         dispatch({
             type: 'Add_Recipe',
             payload:{
+                category:resp.category,
                 name: resp.name,
                 ingredients: resp.ingredients,
                 chef_name: resp.chef_name,
                 origin: resp.origin,
-                catagoryId: resp.catagoryId 
+                categoryId: resp.categoryId 
             }
         })
     })

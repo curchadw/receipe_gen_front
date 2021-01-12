@@ -3,7 +3,7 @@ export const cuidFn = cuid
 
 export default function manageRecipes(state={
     recipes:[],
-    catagories:[],
+    category:[],
 }, action){
 
 
@@ -14,9 +14,9 @@ export default function manageRecipes(state={
                 ingredients: action.ingredients,
                 chef_name: action.chef_name,
                 origin: action.origin,
-                catagoryId: action.catagoryId,
-                catagories: action.catagories,
-                id: cuidFn()
+                categoryId: action.categoryId,
+                category: action.category,
+                // id: cuidFn()
             }
 
             return{
@@ -28,12 +28,12 @@ export default function manageRecipes(state={
             return {...state, recipes}
         
         case 'Add_Catagory':
-            const catagory = {
+            const cat = {
                 name: action.name
             }    
             return{
                 ...state,
-                catagories: [...state.catagories, catagory],
+                category: [...state.category, cat],
             }
         default:
             return state
