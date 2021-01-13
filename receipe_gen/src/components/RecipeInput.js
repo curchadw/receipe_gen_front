@@ -7,12 +7,14 @@ class RecipeInput extends Component{
     constructor(props){
         super(props)
         this.state = {
+            recipe:{
             category: [],
-            categoryId: '',
+            // categoryId: '',
             name:'',
             ingredients: '',
             chef_name: '',
             origin: ''
+            }
         }
         this.handleNameChange.bind(this)
         this.handleOriginChange.bind(this)
@@ -38,7 +40,10 @@ class RecipeInput extends Component{
             })
             console.log(initialCats)
                 this.setState({
+                    recipe: {
+                    ...this.state.recipe.category,
                     category: initialCats,
+                    }
                 })   
             });
     }
@@ -68,11 +73,13 @@ class RecipeInput extends Component{
         event.preventDefault();
         this.props.postRecipes(this.state)
         this.setState({
-        categoryId: '',    
+        recipe:{
+            // categoryId: '',    
         name:'',
         ingredients: '',
         chef_name: '',
         origin: ''
+        }
      })
     }
 

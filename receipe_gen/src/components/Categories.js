@@ -4,16 +4,16 @@ class Categories extends Component{
     
 
     render(){
-        let category = this.props.category
-        let optionItems = category.map((category,index) =>
-            <option key={index}>{category.category}</option>
+        let categories = this.props.recipe.category
+        let optionItems = categories.map((cat,index) =>
+            <option key={index}>{cat.category}</option>
         )
 
 
         return (
             <div>
                 <select>
-                    {optionItems}
+                    {this.props.catrgoty.length ? optionItems : <p>Loading....</p>}
                 </select>
             </div>
         )
