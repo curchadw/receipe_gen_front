@@ -10,13 +10,15 @@ export default function manageRecipes(state={
     switch(action.type){
         case 'Add_Recipe':
             const recipe = {
+                recipe:action[{
                 name: action.name,
                 ingredients: action.ingredients,
                 chef_name: action.chef_name,
                 origin: action.origin,
                 // categoryId: action.categoryId,
-                category: action.category,
+                category: action.category
                 // id: cuidFn()
+                }]
             }
 
             return{

@@ -7,6 +7,7 @@ class Recipe extends Component {
         return(
             <div>
             <h2>{this.props.recipe.name}</h2>
+            <p>{this.props.recipe.category}</p>
             <p>Chef Name: {this.props.recipe.chef_name}</p>
             <p>Origin: {this.props.recipe.origin}</p>
             <p>Ingredients: {this.props.recipe.ingredients}</p>
