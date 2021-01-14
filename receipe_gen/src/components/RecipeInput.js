@@ -9,7 +9,6 @@ class RecipeInput extends Component{
         this.state = {
             recipe:{
             category: [],
-            // categoryId: '',
             name:'',
             ingredients: '',
             chef_name: '',
@@ -30,15 +29,14 @@ class RecipeInput extends Component{
     componentDidMount(){
         let initialCats = [];
         const BASE_URL = `http://localhost:10524`
-        const CATEGOREIS_URL =`${BASE_URL}/categories`
-        fetch(CATEGOREIS_URL)
+        const CATEGORIES_URL =`${BASE_URL}/categories`
+        fetch(CATEGORIES_URL)
         .then(resp => resp.json())
         .then(data => {
             
             initialCats = data.map((category) => {
                 return category
             })
-            console.log(initialCats)
                 this.setState({
                     recipe: {
                     ...this.state.recipe.category,
@@ -90,22 +88,22 @@ class RecipeInput extends Component{
         return(
             <div>
                 <form onSubmit={this.handleSubmit}>
-                    <Categories category={this.state.category}/>
+                    <Categories category={this.state.recipe.category}/>
                     <div>
                     <label for='name'>Recipe Name:</label>
-                    <input type='text' value={this.state.name} onChange={this.handleNameChange} />
+                    <input type='text' value={this.state.recipe.name} onChange={this.handleNameChange} />
                     </div>
                     <div>
                     <label for='name'>Country Origin:</label>
-                    <input type='text' value={this.state.origin} onChange={this.handleOriginChange} />
+                    <input type='text' value={this.state.recipe.origin} onChange={this.handleOriginChange} />
                     </div>
                     <div>
                     <label for='name'>Chef Name:</label>
-                    <input type='text' value={this.state.chef_name} onChange={this.handleChefChange} />
+                    <input type='text' value={this.state.recipe.chef_name} onChange={this.handleChefChange} />
                     </div>
                     <div>
                     <label for='name'>Ingredients:</label>
-                    <textarea value={this.state.ingredients} onChange={this.handleIngChange} />
+                    <textarea value={this.state.recipe.ingredients} onChange={this.handleIngChange} />
                     </div>
                     <input value='submit' type='submit'/>
                 </form>

@@ -16,8 +16,7 @@ export const postRecipes = (recipe)=>{
     //category field
     return(dispatch)=>{
     fetch(RECIPES_URL,config)
-    .then(response => 
-    response.json())
+    .then(response => response.json())
     .then(resp => {
         dispatch({
             type: 'Add_Recipe',

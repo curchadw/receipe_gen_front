@@ -5,11 +5,10 @@ class Categories extends Component{
 
     render(){
        
-        let categories = this.props.category
-        debugger
-        let optionItems = categories.map((cat,index) =>
-            <option key={index}>{cat.category}</option>
-        )
+        let categories = this.props.recipe.category
+        let optionItems = categories.map((cat,index) => {
+          return  <option key={index}>{cat.category}</option>
+        })
 
 
         return (
