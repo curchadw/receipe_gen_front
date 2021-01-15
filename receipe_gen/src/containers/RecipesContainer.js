@@ -11,6 +11,11 @@ class RecipeContainer extends Component{
         super(props)
     }
 
+    componentDidMount(){
+        getRecipes()
+      }
+    
+
     render(){
         return (
             <div>

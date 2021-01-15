@@ -1,14 +1,11 @@
 import React, {Component} from 'react';
+import { getRecipes } from '../actions/getRecipes'
 
-import { getRecipes } from '../actions/getRecipes.js'
 
 
 class RecipeList extends Component {
   
-  componentDidMount(){
-    getRecipes()
-  }
-
+  
 render() {
     
    return (

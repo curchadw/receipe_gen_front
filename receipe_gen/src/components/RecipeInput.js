@@ -7,13 +7,13 @@ class RecipeInput extends Component{
     constructor(props){
         super(props)
         this.state = {
-            recipe:{
+            
             category: [],
             name:'',
             ingredients: '',
             chef_name: '',
             origin: ''
-            }
+            
         }
         this.handleNameChange.bind(this)
         this.handleOriginChange.bind(this)
@@ -38,10 +38,10 @@ class RecipeInput extends Component{
                 return category
             })
                 this.setState({
-                    recipe: {
-                    ...this.state.recipe.category,
+                
+                    // ...this.state.category,
                     category: initialCats,
-                    }
+                
                 })   
             });
     }
@@ -71,13 +71,13 @@ class RecipeInput extends Component{
         event.preventDefault();
         this.props.postRecipes(this.state)
         this.setState({
-        recipe:{
+        
             // categoryId: '',    
         name:'',
         ingredients: '',
         chef_name: '',
         origin: ''
-        }
+        
      })
     }
 
@@ -88,22 +88,22 @@ class RecipeInput extends Component{
         return(
             <div>
                 <form onSubmit={this.handleSubmit}>
-                    <Categories category={this.state.recipe.category}/>
+                    <Categories category={this.state.category}/>
                     <div>
                     <label for='name'>Recipe Name:</label>
-                    <input type='text' value={this.state.recipe.name} onChange={this.handleNameChange} />
+                    <input type='text' value={this.state.name} onChange={this.handleNameChange} />
                     </div>
                     <div>
                     <label for='name'>Country Origin:</label>
-                    <input type='text' value={this.state.recipe.origin} onChange={this.handleOriginChange} />
+                    <input type='text' value={this.state.origin} onChange={this.handleOriginChange} />
                     </div>
                     <div>
                     <label for='name'>Chef Name:</label>
-                    <input type='text' value={this.state.recipe.chef_name} onChange={this.handleChefChange} />
+                    <input type='text' value={this.state.chef_name} onChange={this.handleChefChange} />
                     </div>
                     <div>
                     <label for='name'>Ingredients:</label>
-                    <textarea value={this.state.recipe.ingredients} onChange={this.handleIngChange} />
+                    <textarea value={this.state.ingredients} onChange={this.handleIngChange} />
                     </div>
                     <input value='submit' type='submit'/>
                 </form>

@@ -21,14 +21,14 @@ export const postRecipes = (recipe)=>{
         dispatch({
             type: 'Add_Recipe',
             payload:{
-                recipe:resp[{
-                category:resp.category,
+                
+                // category:resp.category,
                 name: resp.name,
                 ingredients: resp.ingredients,
                 chef_name: resp.chef_name,
                 origin: resp.origin,
-                // categoryId: resp.categoryId 
-                }]
+                categoryId: resp.categoryId 
+            
             }
         })
     })
