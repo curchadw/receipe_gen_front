@@ -15,11 +15,7 @@ class RecipeInput extends Component{
             origin: ''
             
         }
-        // this.handleNameChange.bind(this)
-        // this.handleOriginChange.bind(this)
-        // this.handleChefChange.bind(this)
-        // this.handleIngChange.bind(this)
-
+        
 
         
     }
@@ -39,8 +35,8 @@ class RecipeInput extends Component{
             })
                 this.setState({
                 
-                    // ...this.state.category,
-                    category: initialCats,
+                    
+                    category: initialCats
                 
                 })   
             });
@@ -81,18 +77,18 @@ class RecipeInput extends Component{
      })
     }
 
-    handleCatSelect = selectedOption =>{
-        this.setState({selectedOption});
-    }
+   
+
+    
     
         
 
     render(){
-        const { selectedOption } = this.state
+  
         return(
             <div>
                 <form onSubmit={this.handleSubmit}>
-                    <Categories category={this.state.category} onChange={this.handleCatSelect} value={ selectedOption }/>
+                    <Categories category={this.state.category} value={this.state.category}/>
                     <div>
                     <label for='name'>Recipe Name:</label>
                     <input type='text' value={this.state.name} onChange={this.handleNameChange} />
