@@ -12,7 +12,8 @@ class RecipeInput extends Component{
             name:'',
             ingredients: '',
             chef_name: '',
-            origin: ''
+            origin: '',
+            selectedValue:{}
             
         }
         
@@ -65,30 +66,35 @@ class RecipeInput extends Component{
         this.setState({ [keyName]: event.target.value})
     }
 
-    handleSubmit = (event) =>{
-        event.preventDefault();
+    handleSubmit = (id) =>{
+        // event.preventDefault();
         this.props.postRecipes(this.state)
         this.setState({
-        name:'',
-        ingredients: '',
-        chef_name: '',
-        origin: ''
+        // name:'',
+        // ingredients: '',
+        // chef_name: '',
+        // origin: ''
+        selectedValue: this.state.category[id]
         
      })
     }
 
-   
+    
 
     
     
         
 
     render(){
+        const onChange = (value) => {
+            console.log(value)
+        }
+        
   
         return(
             <div>
                 <form onSubmit={this.handleSubmit}>
-                    <Categories category={this.state.category} value={this.state.category}/>
+                    <Categories category={this.state.category} onChange={onChange}/>
                     <div>
                     <label for='name'>Recipe Name:</label>
                     <input type='text' value={this.state.name} onChange={this.handleNameChange} />

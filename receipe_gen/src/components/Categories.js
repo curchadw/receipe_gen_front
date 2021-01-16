@@ -10,9 +10,9 @@ class Categories extends Component{
     render(){
        
         let categories = this.props.category
-        let value = this.props.value
+        let onChange = this.props.onChange;
         let optionItems = categories.map((cat,index) => {
-          return  <option key={index} value={value}>{cat.category}</option>
+          return  <option key={index} value={cat.category}>{cat.category}</option>
         })
 
         
@@ -20,7 +20,7 @@ class Categories extends Component{
 
         return (
             <div>
-                <select onchange={this.handleCatChange} value={this.props.category}>
+                <select onChange={(e) => onChange(e.target.value)}>
                     {this.props.category ? optionItems : <p>Loading....</p>}
                 </select>
             </div>
