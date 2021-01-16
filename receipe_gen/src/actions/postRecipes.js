@@ -13,6 +13,8 @@ export const postRecipes = (recipe)=>{
         "Content-type": "application/json"
      }
     }
+
+   
     //category field
     return(dispatch)=>{
     fetch(RECIPES_URL,config)
@@ -31,7 +33,7 @@ export const postRecipes = (recipe)=>{
             }
         })
     })
-    //.then(response => <Recipe />)
+    
       .catch((error) => console.log.error(error))
 
     }

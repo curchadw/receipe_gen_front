@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
-import  Categories  from './Categories.js'
+// import  Categories  from './Categories.js'
+import Select from 'react-select'
+import axios from 'axios'
 
 
 
@@ -8,12 +10,11 @@ class RecipeInput extends Component{
         super(props)
         this.state = {
             
-            category: [],
+            categories: [],
             name:'',
             ingredients: '',
             chef_name: '',
-            origin: '',
-            selectedValue:{}
+            origin: ''
             
         }
         
@@ -22,26 +23,21 @@ class RecipeInput extends Component{
     }
 
     
-
-    componentDidMount(){
-        let initialCats = [];
+    async getOptions(){
         const BASE_URL = `http://localhost:10524`
         const CATEGORIES_URL =`${BASE_URL}/categories`
-        fetch(CATEGORIES_URL)
-        .then(resp => resp.json())
-        .then(data => {
+        const res = await axios.get(CATEGORIES_URL)
+        const data = res.data
+
+        const options = data.map(d => ({
+            'label' : d.category
             
-            initialCats = data.map((category) => {
-                return category
-            })
-                this.setState({
-                
-                    
-                    category: initialCats
-                
-                })   
-            });
+        }))
+
+        this.setState({categories: options})
     }
+
+    
 
     handleNameChange = (event) =>{
         this.setState({name:event.target.value})
@@ -59,22 +55,24 @@ class RecipeInput extends Component{
         this.setState({origin:event.target.value})
     }
 
-    
-
-
-    handleChange = (keyName, event) =>{
-        this.setState({ [keyName]: event.target.value})
+    handleChange = (e) =>{
+        this.setState({categories:e.label})
     }
 
-    handleSubmit = (id) =>{
-        // event.preventDefault();
+    componentDidMount(){
+        this.getOptions()
+    }
+
+
+    handleSubmit = (e) =>{
+        e.preventDefault();
         this.props.postRecipes(this.state)
         this.setState({
-        // name:'',
-        // ingredients: '',
-        // chef_name: '',
-        // origin: ''
-        selectedValue: this.state.category[id]
+        name:'',
+        ingredients: '',
+        chef_name: '',
+        origin: ''
+        
         
      })
     }
@@ -86,15 +84,13 @@ class RecipeInput extends Component{
         
 
     render(){
-        const onChange = (value) => {
-            console.log(value)
-        }
+       
         
   
         return(
             <div>
                 <form onSubmit={this.handleSubmit}>
-                    <Categories category={this.state.category} onChange={onChange}/>
+                    <Select options={this.state.categories} onChange={this.handleChange}/>
                     <div>
                     <label for='name'>Recipe Name:</label>
                     <input type='text' value={this.state.name} onChange={this.handleNameChange} />
