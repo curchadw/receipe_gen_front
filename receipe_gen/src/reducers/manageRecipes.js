@@ -3,7 +3,7 @@
 
 export default function manageRecipes(state={
     recipes:[],
-    categories:[],
+    category_id:[],
 }, action){
 
 
@@ -33,7 +33,7 @@ export default function manageRecipes(state={
             }    
             return{
                 ...state,
-                categories: [...state.categories, category],
+                category_id: [...state.category_id, category],
             }
         default:
             return state

@@ -10,7 +10,7 @@ class RecipeInput extends Component{
         super(props)
         this.state = {
             
-            categories: [],
+            category_id: [],
             name:'',
             ingredients: '',
             chef_name: '',
@@ -30,11 +30,16 @@ class RecipeInput extends Component{
         const data = res.data
 
         const options = data.map(d => ({
-            'label' : d.category
+           
+            
+           
+            'label' : d.category,
+            'id' : d.id
+
             
         }))
 
-        this.setState({categories: options})
+        this.setState({category_id: options})
     }
 
     
@@ -56,7 +61,7 @@ class RecipeInput extends Component{
     }
 
     handleChange = (e) =>{
-        this.setState({categories:e.label})
+        this.setState({category_id:e.id})
     }
 
     componentDidMount(){
@@ -85,12 +90,12 @@ class RecipeInput extends Component{
 
     render(){
        
-        
+        console.log(this.state.categories)
   
         return(
             <div>
                 <form onSubmit={this.handleSubmit}>
-                    <Select options={this.state.categories} onChange={this.handleChange}/>
+                    <Select options={this.state.category_id} onChange={this.handleChange}/>
                     <div>
                     <label for='name'>Recipe Name:</label>
                     <input type='text' value={this.state.name} onChange={this.handleNameChange} />
