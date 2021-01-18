@@ -10,9 +10,11 @@ import manageRecipes from './reducers/manageRecipes';
 const store = createStore(manageRecipes,applyMiddleware(thunk))
 
 ReactDOM.render(
+  <React.StrictMode>
     <Provider store={store}>
     <App />
-    </Provider>,
+    </Provider>
+    </React.StrictMode>,
   
   document.getElementById('root')
 );

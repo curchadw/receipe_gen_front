@@ -7,7 +7,11 @@ export const getRecipes = () => {
       dispatch({ type: 'START_FETCHING_RECIPES_REQUEST' });
       fetch(RECIPES_URL)
         .then(response =>{ return response.json()})
-        .then(recipes => dispatch({ type: 'Get_Recipes', recipes }));
+        // .then(recipes => dispatch({ type: 'Get_Recipes', recipes }));
+        .then(recipes => console.log(recipes))
+        
     };
+
+    
     
   }

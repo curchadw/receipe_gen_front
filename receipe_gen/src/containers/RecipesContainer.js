@@ -12,7 +12,7 @@ class RecipeContainer extends Component{
     }
 
     componentDidMount(){
-        getRecipes()
+        this.props.getRecipes()
       }
     
 
@@ -20,7 +20,7 @@ class RecipeContainer extends Component{
         return (
             <div>
                <RecipeInput postRecipes={this.props.postRecipes} /> 
-               <RecipeList getRecipes={this.props.recipes} />
+               {/* <RecipeList getRecipes={this.props.getRecipes} /> */}
             </div>
         )
     }
