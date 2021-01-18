@@ -1,18 +1,22 @@
 import React, {Component} from 'react';
-//import { getRecipes } from '../actions/getRecipes.js';
+// import { getRecipes } from '../actions/getRecipes.js';
 import Recipe from './Recipe.js'
 
 class RecipeList extends Component {
 
-
+// componentDidMount(){
+//    this.props.getRecipes()
+// }
 
 render() {
-   
+   const { recipes } = this.props
+   console.log(recipes)
    return (
     
-  
+      
     <div>
-     {this.props.recipes.map(recipe => { return <Recipe recipe={recipe} key={recipe.id} />})}
+      
+     {recipes.map(recipe =>  <Recipe recipe={recipe} key={recipe.id} />)}
     </div>
    )
     

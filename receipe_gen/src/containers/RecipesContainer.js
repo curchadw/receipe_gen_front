@@ -20,7 +20,7 @@ class RecipesContainer extends Component{
         return (
             <div>
                <RecipeInput postRecipes={this.props.postRecipes} /> 
-               <RecipeList getRecipes={this.props.getRecipes} />
+               <RecipeList recipes={this.props.recipes} />
             </div>
         )
     }
@@ -33,7 +33,7 @@ const mapStateToProps = state =>({
    recipes: state.recipes
 
    
-}, console.log(state.recipes))
+}, console.log(state))
 
 
 const mapDispatchToProps = dispatch =>{
