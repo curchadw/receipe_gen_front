@@ -6,7 +6,7 @@ import { postRecipes } from '../actions/postRecipes.js'
 import { getRecipes } from '../actions/getRecipes'
 
 
-class RecipeContainer extends Component{
+class RecipesContainer extends Component{
     constructor(props){
         super(props)
     }
@@ -20,7 +20,7 @@ class RecipeContainer extends Component{
         return (
             <div>
                <RecipeInput postRecipes={this.props.postRecipes} /> 
-               {/* <RecipeList getRecipes={this.props.getRecipes} /> */}
+               <RecipeList getRecipes={this.props.getRecipes} />
             </div>
         )
     }
@@ -31,7 +31,9 @@ class RecipeContainer extends Component{
 
 const mapStateToProps = state =>({
    recipes: state.recipes
-})
+
+   
+}, console.log(state.recipes))
 
 
 const mapDispatchToProps = dispatch =>{
@@ -44,4 +46,4 @@ const mapDispatchToProps = dispatch =>{
 
 
 
-export default connect(mapStateToProps,mapDispatchToProps)(RecipeContainer)
+export default connect(mapStateToProps,mapDispatchToProps)(RecipesContainer)
