@@ -19,8 +19,8 @@ class RecipeContainer extends Component{
     render(){
         return (
             <div>
-               <RecipeInput postRecipes={this.props.recipes} /> 
-               <RecipeList getRecipes={this.props.getRecipes} />
+               <RecipeInput postRecipes={this.props.postRecipes} /> 
+               <RecipeList getRecipes={this.props.recipes} />
             </div>
         )
     }
