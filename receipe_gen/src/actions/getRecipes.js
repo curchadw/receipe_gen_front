@@ -1,15 +1,13 @@
-import Recipe from '../components/Recipe.js'
-
 export const getRecipes = () => {
+  
     const BASE_URL = `http://localhost:10524`
     const RECIPES_URL =`${BASE_URL}/recipes`
 
-
-    return()=>{
-        fetch(RECIPES_URL)
-        .then(resp => resp.json())
-        .then(recipes => recipes.map(recipe => {
-          return <div><Recipe recipe={recipe} key={recipe.id}/></div>
-        }));
-    }
-}
+    return (dispatch) => {
+      dispatch({ type: 'START_FETCHING_RECIPES_REQUEST' });
+      fetch(RECIPES_URL)
+        .then(response =>{ return response.json()})
+        .then(recipes => dispatch({ type: 'Get_Recipes', recipes }));
+    };
+    
+  }

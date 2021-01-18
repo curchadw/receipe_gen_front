@@ -19,8 +19,8 @@ class RecipeContainer extends Component{
     render(){
         return (
             <div>
-               <RecipeInput postRecipes={this.props.postRecipes} /> 
-               <RecipeList getRecipes={this.props.getRecipes} deleteRecipe={this.props.deleteRecipe} />
+               <RecipeInput postRecipes={this.props.recipes} /> 
+               <RecipeList getRecipes={this.props.getRecipes} />
             </div>
         )
     }
@@ -29,17 +29,15 @@ class RecipeContainer extends Component{
 
 }
 
-const mapStateToProps = state =>{
-    return{
-        recipes: state.recipes
-    }
-}
+const mapStateToProps = state =>({
+   recipes: state.recipes
+})
 
 
 const mapDispatchToProps = dispatch =>{
     return{
     postRecipes: (recipe) => dispatch(postRecipes(recipe)),
-    getRecipes: (recipes) => dispatch(getRecipes(recipes))
+    getRecipes: () => dispatch(getRecipes())
     // deleteRecipe: id => dispatch({type: 'Delete_Recipe', id})
     }
 }

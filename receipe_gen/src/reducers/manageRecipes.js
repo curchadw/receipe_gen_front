@@ -26,6 +26,17 @@ export default function manageRecipes(state={
         case 'Delete_Recipe':
             const recipes = state.recipes.filter(recipe => recipe.id !== action.id)
             return {...state, recipes}
+        case 'START_FETCHING_RECIPES_REQUEST':
+            return {
+                ...state,
+            recipes: [...state.recipes],
+            requesting: true
+        }
+        case 'Get_Recipes':
+            return {
+                ...state, recipes: action.recipes,
+                requesting: false
+            }
         
         case 'Add_Catagory':
             const category = {
