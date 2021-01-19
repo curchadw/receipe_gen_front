@@ -10,13 +10,12 @@ class RecipeList extends Component {
 
 render() {
    const { recipes } = this.props
-   console.log(recipes)
    return (
     
       
     <div>
       
-     {recipes.map(recipe =>  <Recipe recipe={recipe} key={recipe.id} />)}
+     {recipes.map((recipe,index) =>  <Recipe recipe={recipe} key={index} />)}
     </div>
    )
     

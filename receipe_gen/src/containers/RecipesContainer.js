@@ -29,11 +29,11 @@ class RecipesContainer extends Component{
 
 }
 
-const mapStateToProps = state =>({
-   recipes: state.recipes
-
-   
-}, console.log(state))
+const mapStateToProps = state =>{
+    return{
+        recipes: state.recipes
+    }
+}
 
 
 const mapDispatchToProps = dispatch =>{
