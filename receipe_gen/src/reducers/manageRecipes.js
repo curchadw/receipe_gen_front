@@ -38,13 +38,19 @@ export default function manageRecipes(state={
                 requesting: false
             }
         
-        case 'Add_Catagory':
-            const category = {
-                name: action.name
-            }    
+        case 'Get_Categories':
+            // const category = {
+            //     category_id: action.category_id
+            // }    
             return{
-                ...state,
-                category_id: [...state.category_id, category],
+                ...state, category_id: action.category_id,
+                requesting: false
+            }
+            case 'START_FETCHING_CATEGORIES_REQUEST':
+                return {
+                    ...state,
+                catergory_id: [...state.category_id],
+                requesting: true
             }
         default:
             return state

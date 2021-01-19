@@ -70,7 +70,7 @@ class RecipeInput extends Component{
 
 
     handleSubmit = (e) =>{
-        e.preventDefault();
+        // e.preventDefault();
         this.props.postRecipes(this.state)
         this.setState({
         name:'',
@@ -90,7 +90,6 @@ class RecipeInput extends Component{
 
     render(){
        
-        console.log(this.state.categories)
   
         return(
             <div>

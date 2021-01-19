@@ -32,6 +32,7 @@ export const postRecipes = (recipe)=>{
             
             }
         })
+        
     })
     
       .catch((error) => console.log.error(error))

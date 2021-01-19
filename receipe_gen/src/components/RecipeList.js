@@ -1,12 +1,9 @@
 import React, {Component} from 'react';
-// import { getRecipes } from '../actions/getRecipes.js';
 import Recipe from './Recipe.js'
 
 class RecipeList extends Component {
 
-// componentDidMount(){
-//    this.props.getRecipes()
-// }
+
 
 render() {
    const { recipes } = this.props
@@ -15,7 +12,7 @@ render() {
       
     <div>
       
-     {recipes.map((recipe,index) =>  <Recipe recipe={recipe} key={index} />)}
+      {recipes.map((recipe,index) =>  {return <Recipe recipe={recipe} key={index} />})}
     </div>
    )
     
