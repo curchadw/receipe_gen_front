@@ -4,7 +4,7 @@ export const deleteRecipe = (recipeId) =>{
 
     return (dispatch) => {
         
-        fetch(`${RECIPES_URL}/${recipeId}`)
+        fetch(`${RECIPES_URL}/${recipeId}`,{method: 'DELETE'})
           .then(response =>{ return response.json()})
           .then(id => { return dispatch({ type: 'Delete_Recipe', id })});
          
