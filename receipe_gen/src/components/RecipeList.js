@@ -12,7 +12,7 @@ render() {
       
     <div>
       
-      {recipes.map((recipe,index) =>  {return <Recipe recipe={recipe} key={index} />})}
+      {recipes.map(recipe =>  {return <Recipe recipe={recipe} {...recipe} deleteRecipe={this.props.deleteRecipe} key={recipe.id} />})}
     </div>
    )
     

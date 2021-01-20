@@ -4,7 +4,8 @@ import RecipeInput from '../components/RecipeInput'
 import { connect } from 'react-redux'
 import { postRecipes } from '../actions/postRecipes.js'
 import { getRecipes } from '../actions/getRecipes'
-import { getCategories } from '../actions/getCategories'
+import { deleteRecipe } from '../actions/deleteRecipe'
+
 
 
 class RecipesContainer extends Component{
@@ -13,8 +14,7 @@ class RecipesContainer extends Component{
     }
 
     componentDidMount(){
-        this.props.getRecipes(),
-        this.props.getCategories()
+        this.props.getRecipes()
       }
     
 
@@ -22,7 +22,7 @@ class RecipesContainer extends Component{
         return (
             <div>
                <RecipeInput postRecipes={this.props.postRecipes} /> 
-               <RecipeList recipes={this.props.recipes} catergory_id={this.props.catergory_id}/>
+               <RecipeList recipes={this.props.recipes} deleteRecipe={this.props.deleteRecipe}/>
             </div>
         )
     }
@@ -42,8 +42,8 @@ const mapDispatchToProps = dispatch =>{
     return{
     postRecipes: (recipe) => dispatch(postRecipes(recipe)),
     getRecipes: () => dispatch(getRecipes()),
-    getCategories: () => dispatch(getCategories())
-    // deleteRecipe: id => dispatch({type: 'Delete_Recipe', id})
+    // getCategories: () => dispatch(getCategories())
+    deleteRecipe: (id) => dispatch(deleteRecipe(id))
     }
 }
 
