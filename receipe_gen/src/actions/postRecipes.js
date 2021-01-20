@@ -23,7 +23,7 @@ export const postRecipes = (recipe)=>{
         dispatch({
             type: 'Add_Recipe',
             payload:{
-                
+                id: resp.id,
                 name: resp.name,
                 ingredients: resp.ingredients,
                 chef_name: resp.chef_name,
@@ -32,7 +32,7 @@ export const postRecipes = (recipe)=>{
             
             }
         })
-        
+
     })
     
       .catch((error) => console.log.error(error))

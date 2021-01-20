@@ -10,7 +10,7 @@ export default function manageRecipes(state={
     switch(action.type){
         case 'Add_Recipe':
             const recipe = {
-                
+                id: action.id,
                 name: action.name,
                 ingredients: action.ingredients,
                 chef_name: action.chef_name,
