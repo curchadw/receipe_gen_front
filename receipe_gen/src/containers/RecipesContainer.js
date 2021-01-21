@@ -42,8 +42,7 @@ const mapDispatchToProps = dispatch =>{
     return{
     postRecipes: (recipe) => dispatch(postRecipes(recipe)),
     getRecipes: () => dispatch(getRecipes()),
-    // getCategories: () => dispatch(getCategories())
-    deleteRecipe: (id) => dispatch(deleteRecipe(id))
+    deleteRecipe: recipeId => dispatch(deleteRecipe(recipeId))
     }
 }
 

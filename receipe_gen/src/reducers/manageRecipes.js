@@ -9,7 +9,7 @@ export default function manageRecipes(state={
 
     switch(action.type){
         case 'Add_Recipe':
-            const recipe = {
+            let recipe = {
                 id: action.id,
                 name: action.name,
                 ingredients: action.ingredients,
@@ -18,15 +18,17 @@ export default function manageRecipes(state={
                 category: action.category
                 
             }
-
+           
             return{
                 ...state,
                 recipes: [...state.recipes, recipe],
             }
         case 'Delete_Recipe':
             
-            const recipes = state.recipes.filter(recipe => recipe.id !== action.id)
+            const recipes = state.recipes.filter(recipe => recipe.id !== action.recipeId)
+            
             return {...state, recipes}
+            // return state.filter(recipe => recipe.id !== action.id)
 
         case 'START_FETCHING_RECIPES_REQUEST':
             return {

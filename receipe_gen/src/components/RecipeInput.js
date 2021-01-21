@@ -70,16 +70,15 @@ class RecipeInput extends Component{
 
 
     handleSubmit = (e) =>{
-        e.preventDefault();
+        //e.preventDefault();
         this.props.postRecipes(this.state)
         this.setState({
         name:'',
         ingredients: '',
         chef_name: '',
         origin: ''
-        
-        
      })
+     
     }
 
     
