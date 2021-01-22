@@ -23,12 +23,17 @@ export default function manageRecipes(state={
                 ...state,
                 recipes: [...state.recipes, recipe],
             }
+        case 'DELETING_RECIPE_START': 
+            return {
+            ...state.recipes, loading: true 
+            }
+
         case 'Delete_Recipe':
-            
+           
             const recipes = state.recipes.filter(recipe => recipe.id !== action.recipeId)
-            
+           
             return {...state, recipes}
-            // return state.filter(recipe => recipe.id !== action.id)
+            
 
         case 'START_FETCHING_RECIPES_REQUEST':
             return {
