@@ -31,7 +31,7 @@ export default function manageRecipes(state={
         case 'Delete_Recipe':
            
             const recipes = state.recipes.filter(recipe => recipe.id !== action.recipeId)
-           
+            debugger
             return {...state, recipes}
             
 
