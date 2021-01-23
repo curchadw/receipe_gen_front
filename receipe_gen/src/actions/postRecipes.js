@@ -1,6 +1,6 @@
 export const postRecipes = (recipe) => {
   
-    const BASE_URL = `http://localhost:10524`
+    const BASE_URL = `http://localhost:3001`
     const RECIPES_URL =`${BASE_URL}/recipes`
     const config = {
         method: "POST",

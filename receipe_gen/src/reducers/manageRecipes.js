@@ -2,6 +2,7 @@
 // export const cuidFn = cuid
 
 export default function manageRecipes(state={
+    loading: false,
     recipes:[],
     category_id:[],
 }, action){
@@ -22,29 +23,35 @@ export default function manageRecipes(state={
             return{
                 ...state,
                 recipes: [...state.recipes, recipe],
+                loading: false
             }
         case 'DELETING_RECIPE_START': 
             return {
-            ...state.recipes, loading: true 
+            ...state.recipes, 
+            loading: true 
             }
 
-        case 'Delete_Recipe':
-           
-            const recipes = state.recipes.filter(recipe => recipe.id !== action.recipeId)
-            debugger
-            return {...state, recipes}
+        case 'DELETE_RECIPE_SUCCESS':
+            
+            const recipes = state.recipes.filter(recipe => recipe.id !== action.payload.recipeId)
+            
+            return {
+                ...state, recipes,
+               loading: false
+            
+            }
             
 
         case 'START_FETCHING_RECIPES_REQUEST':
             return {
                 ...state,
             recipes: [...state.recipes],
-            requesting: true
+            loading: true
         }
-        case 'Get_Recipes':
+        case 'GET_RECIPES':
             return {
                 ...state, recipes: action.recipes,
-                requesting: false
+                loading: false
             }
         
        

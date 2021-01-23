@@ -16,13 +16,26 @@ class RecipesContainer extends Component{
     componentDidMount(){
         this.props.getRecipes()
       }
+
+
+      handleLoading = () => {
+        console.log(this.props.loading)
+        if(this.props.loading) {
+          return <div>Loading...</div>
+        } else {
+          return  <RecipeList recipes={this.props.recipes} deleteRecipe={this.props.deleteRecipe}/>
+        }
+      }
+      
     
 
     render(){
         return (
             <div>
                <RecipeInput postRecipes={this.props.postRecipes} /> 
-               <RecipeList recipes={this.props.recipes} deleteRecipe={this.props.deleteRecipe}/>
+               {/* <RecipeList recipes={this.props.recipes} deleteRecipe={this.props.deleteRecipe}/> */}
+               {this.handleLoading()}
+               
             </div>
         )
     }
@@ -33,7 +46,9 @@ class RecipesContainer extends Component{
 
 const mapStateToProps = state =>{
     return{
-        recipes: state.recipes
+        recipes: state.recipes,
+        loading: state.loading
+
     }
 }
 

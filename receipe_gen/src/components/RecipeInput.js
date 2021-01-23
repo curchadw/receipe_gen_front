@@ -24,7 +24,7 @@ class RecipeInput extends Component{
 
     
     async getOptions(){
-        const BASE_URL = `http://localhost:10524`
+        const BASE_URL = `http://localhost:3001`
         const CATEGORIES_URL =`${BASE_URL}/categories`
         const res = await axios.get(CATEGORIES_URL)
         const data = res.data

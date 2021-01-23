@@ -3,6 +3,10 @@ import React, {Component} from 'react'
 
 class Recipe extends Component {
    
+    handleOnClick(){
+        this.props.deleteRecipe(this.props.recipe.id);
+      }
+
     render(){
         
         return(
@@ -12,7 +16,7 @@ class Recipe extends Component {
             <p>Chef Name: {this.props.recipe.chef_name}</p>
             <p>Origin: {this.props.recipe.origin}</p>
             <p>Ingredients: {this.props.recipe.ingredients}</p>
-            <button onClick={()=> this.props.deleteRecipe(this.props.recipe.id)}>Delete</button>
+            <button onClick={()=>this.handleOnClick()}>Delete</button>
             </div>
              
         )
