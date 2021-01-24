@@ -28,13 +28,13 @@ export default function manageRecipes(state={
         case 'DELETING_RECIPE_START': 
             return {
             
-            ...state.recipes, 
+            recipe:[...state.recipes], 
             loading: true 
             }
 
         case 'DELETE_RECIPE_SUCCESS':
             
-            const recipes = state.recipes.filter(recipe => recipe.id !== action.payload.recipeId)
+            const recipes = state.recipes.filter(recipe => recipe.id !== action.payload)
             console.log(state.recipes)
             return {
                
