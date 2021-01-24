@@ -33,7 +33,6 @@ class RecipesContainer extends Component{
         return (
             <div>
                <RecipeInput postRecipes={this.props.postRecipes} /> 
-               {/* <RecipeList recipes={this.props.recipes} deleteRecipe={this.props.deleteRecipe}/> */}
                {this.handleLoading()}
                
             </div>

@@ -28,7 +28,7 @@ export default function manageRecipes(state={
         case 'DELETING_RECIPE_START': 
             return {
             
-            recipes: [...state.recipes], 
+            ...state.recipes, 
             loading: true 
             }
 
