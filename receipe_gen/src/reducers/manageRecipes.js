@@ -32,15 +32,14 @@ export default function manageRecipes(state={
             loading: true 
             }
 
-        case 'DELETE_RECIPE_SUCCESS':
-            
-            const recipes = state.recipes.filter(recipe => recipe.id !== action.payload)
-            console.log(state.recipes)
-            return {
-               
-                ...state, recipes,
-               loading: false
-            }
+            case 'DELETE_RECIPE_SUCCESS':
+                
+                const recipes = state.recipes.filter(recipe => recipe.id !== action.payload)
+                console.log(state.recipes)
+                return {
+                    ...state, recipes,
+                   loading: false
+                }
             
             
 

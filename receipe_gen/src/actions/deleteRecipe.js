@@ -6,12 +6,11 @@ export const deleteRecipe = (recipeId) =>{
     
    
     return (dispatch) => {
-        
-        dispatch({ type: "DELETING_RECIPE_START" })
-        fetch(`${RECIPES_URL}/${recipeId}`,{method: 'DELETE'})
-        //   .then(response =>{ return response.json() })
-          .then(() =>{ return dispatch({ type: 'DELETE_RECIPE_SUCCESS', payload: recipeId  })})
-          .catch((error) => {throw(error)})
+        fetch(`${RECIPES_URL}/${recipeId}`, { method: 'DELETE' })
+            // first then is not needed, the controller method does not return json
+            .then(() => {
+                return dispatch({ type: 'DELETE_RECIPE_SUCCESS', payload: recipeId })
+            });
     };
 
 }
