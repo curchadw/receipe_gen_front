@@ -5,6 +5,15 @@ import { connect } from 'react-redux'
 import { postRecipes } from '../actions/postRecipes.js'
 import { getRecipes } from '../actions/getRecipes'
 import { deleteRecipe } from '../actions/deleteRecipe'
+import Home from '../components/Home'
+import CreatorInfo from '../components/CreatorInfo'
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
+
 
 
 
@@ -31,11 +40,31 @@ class RecipesContainer extends Component{
 
     render(){
         return (
+          <Router>
             <div>
+              <nav>
+                   <ul>
+                        <li><Link to="/">Home</Link></li>
+                        <li><Link to="/recipes">Recipes</Link></li>
+                        <li><Link to="/about">About</Link></li>
+                    </ul>
+              </nav>
+              <hr />
                <RecipeInput postRecipes={this.props.postRecipes} /> 
                {this.handleLoading()}
-               
+            <Switch>
+                <Route exact path="/">
+                  <Home />
+                </Route>
+                <Route path="/about">
+                  <CreatorInfo />
+                </Route>
+                <Route path="/recipes">
+                  <RecipesContainer />
+                </Route>
+            </Switch>  
             </div>
+          </Router>
         )
     }
 
