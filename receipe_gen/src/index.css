@@ -5,6 +5,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+ 
 }
 
 code {
@@ -12,12 +13,52 @@ code {
     monospace;
 }
 
+.container {
+  background-color: lightblue;
+}
+
 .flexitems{
   display: flex;
   flex-wrap: wrap;
+  justify-content: space-evenly;
 
 }
 
 .recipe{
   margin: 1em;
+}
+
+.recipe_item{
+  margin: 1em;
+  padding: 1em;
+  border: 2px solid black;
+  width: 300px;
+  overflow: auto;
+}
+
+.home,.about > h1,h2,h3,h4{
+  text-align: center;
+}
+
+.food{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+
+.main{
+  margin-bottom:60px;
+  
+}
+
+footer{
+  margin-top: 100px;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: navy;
+  color: white;
+  text-align: center;
 }

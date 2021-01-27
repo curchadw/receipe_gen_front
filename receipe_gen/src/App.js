@@ -1,12 +1,12 @@
 import './App.css';
 import React, { Component } from 'react'
-import RecipesContainer from './containers/RecipesContainer.js'
+import MainContainer from './containers/MainContainer';
 
 class App extends Component{
   render(){
     return(
       <div>
-        <RecipesContainer />
+        <MainContainer />
       </div>
     )
   }

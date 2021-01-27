@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import '../index.css'
+import foodimage from './foodimage.jpg'
 
 
 
@@ -7,11 +8,14 @@ import '../index.css'
 class Home extends Component{
 
 render(){
+  let home = 'home'
+  let food = 'food'
     return(
     
-      <div>
-          <h2>Welcome To The Recipe App</h2>
-          <p>Click links above to get started!</p>
+      <div className={home}>
+          <h1>Welcome To The Recipe App</h1>
+          <h3>Click links above to get started!</h3>
+          <img src={foodimage} alt='food' width="700" height="700" className={food}></img>
       </div>
             
     )

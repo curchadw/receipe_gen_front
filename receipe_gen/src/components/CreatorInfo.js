@@ -5,10 +5,11 @@ class CreatorInfo extends Component{
 render(){
     return(
   
-        <div>
+        <div className='about'>
             <h2>About this application</h2>
-            <p>The purpose of this application was for a way for somebody to manage their cooking recipes. Over time this application will grow with a lot of recipes
-            </p>
+            <h4>The purpose of this application was to show off some of the skills I picked up from the React/Redux part of the the Flatiron software engineer program. 
+               Also I thought it would be a good idea to make an application that simply manages recipes as I make them. 
+            </h4>
             
         </div>
     

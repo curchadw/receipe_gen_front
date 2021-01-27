@@ -93,7 +93,7 @@ class RecipeInput extends Component{
   
         return(
             <div>
-                <container>
+               
                 <form onSubmit={this.handleSubmit}>
                     <Select options={this.state.category_id} onChange={this.handleChange} className={dropdown}/>
                     <div>
@@ -111,11 +111,11 @@ class RecipeInput extends Component{
                     </div>
                     <div>
                     <label for='name'>Ingredients:</label>
-                    <textarea className ="form-control" type='text' value={this.state.ingredients} onChange={this.handleIngChange} />
+                    <textarea className ="form-control" cols="30" rows="5" type='text' value={this.state.ingredients} onChange={this.handleIngChange} />
                     </div>
                     <input value='submit' type='submit'/>
                 </form>
-                </container>
+                
             </div>
         )
     }

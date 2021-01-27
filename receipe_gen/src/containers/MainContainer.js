@@ -12,6 +12,7 @@ import {
 
 class MainContainer extends Component{
     render(){
+        let maincontent = 'main'
         return(
         <Router>   
         <div>
@@ -27,16 +28,18 @@ class MainContainer extends Component{
                     <Link to="/recipes">Recipes</Link>
                 </li>
                 </ul>
-                </nav>
+            </nav>
                 <hr/>
-                <container>
+            <main className={maincontent}>   
                 <Switch>
                     <Route exact path="/" component={Home} />
                     <Route exact path="/about" component={CreatorInfo} />
                     <Route exact path="/recipes" component={RecipesContainer} />
                 </Switch>
-                </container>
-            
+            </main>     
+          <footer>
+              <p>2021 Curtis Chadwell</p> 
+          </footer>
           </div>
         </Router> 
         )
