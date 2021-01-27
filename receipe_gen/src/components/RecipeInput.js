@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 // import  Categories  from './Categories.js'
 import Select from 'react-select'
 import axios from 'axios'
+import '../index.css'
 
 
 
@@ -70,7 +71,7 @@ class RecipeInput extends Component{
 
 
     handleSubmit = (e) =>{
-        //e.preventDefault();
+        // e.preventDefault();
         this.props.postRecipes(this.state)
         this.setState({
         name:'',
@@ -88,30 +89,33 @@ class RecipeInput extends Component{
         
 
     render(){
-       
+       let dropdown = 'form-select form-select-sm'
   
         return(
             <div>
+                <container>
                 <form onSubmit={this.handleSubmit}>
-                    <Select options={this.state.category_id} onChange={this.handleChange}/>
+                    <Select options={this.state.category_id} onChange={this.handleChange} className={dropdown}/>
                     <div>
                     <label for='name'>Recipe Name:</label>
-                    <input type='text' value={this.state.name} onChange={this.handleNameChange} />
+                    <input  className ="form-control" type='text' value={this.state.name} onChange={this.handleNameChange} />
                     </div>
                     <div>
                     <label for='name'>Country Origin:</label>
-                    <input type='text' value={this.state.origin} onChange={this.handleOriginChange} />
+                    <input className ="form-control" type='text' value={this.state.origin} onChange={this.handleOriginChange} />
                     </div>
                     <div>
                     <label for='name'>Chef Name:</label>
-                    <input type='text' value={this.state.chef_name} onChange={this.handleChefChange} />
+                    
+                    <input className ="form-control" type='text' value={this.state.chef_name} onChange={this.handleChefChange} />
                     </div>
                     <div>
                     <label for='name'>Ingredients:</label>
-                    <textarea value={this.state.ingredients} onChange={this.handleIngChange} />
+                    <textarea className ="form-control" type='text' value={this.state.ingredients} onChange={this.handleIngChange} />
                     </div>
                     <input value='submit' type='submit'/>
                 </form>
+                </container>
             </div>
         )
     }
