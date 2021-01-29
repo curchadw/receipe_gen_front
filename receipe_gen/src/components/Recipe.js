@@ -1,4 +1,5 @@
 import React, {Component} from 'react'
+import Categories from './Categories.js'
 
 
 
@@ -17,6 +18,7 @@ class Recipe extends Component {
             <p>Chef Name: {this.props.recipe.chef_name}</p>
             <p>Origin: {this.props.recipe.origin}</p>
             <p>Ingredients: {this.props.recipe.ingredients}</p>
+            <p>Instructions: {this.props.recipe.instructions}</p>
             <button onClick={()=>this.handleOnClick()}>Delete</button>
             </div>
              

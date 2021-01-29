@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-// import  Categories  from './Categories.js'
+import  Categories  from './Categories.js'
 import Select from 'react-select'
 import axios from 'axios'
 import '../index.css'
@@ -15,7 +15,8 @@ class RecipeInput extends Component{
             name:'',
             ingredients: '',
             chef_name: '',
-            origin: ''
+            origin: '',
+            instructions:''
             
         }
         
@@ -47,6 +48,10 @@ class RecipeInput extends Component{
 
     handleNameChange = (event) =>{
         this.setState({name:event.target.value})
+    }
+
+    handleInsChange = (event) => {
+        this.setState({instructions:event.target.value})
     }
 
     handleIngChange = (event) => {
@@ -93,7 +98,7 @@ class RecipeInput extends Component{
   
         return(
             <div>
-               
+                <p>1. American, 2. Seafood, 3. Italian, 4. Keto, 5. Asian, 6. Mexican, 7. International</p>
                 <form onSubmit={this.handleSubmit}>
                     <Select options={this.state.category_id} onChange={this.handleChange} className={dropdown}/>
                     <div>
@@ -112,6 +117,9 @@ class RecipeInput extends Component{
                     <div>
                     <label for='name'>Ingredients:</label>
                     <textarea className ="form-control" cols="30" rows="5" type='text' value={this.state.ingredients} onChange={this.handleIngChange} />
+                    
+                    <label for='name'>Instructions:</label>
+                    <textarea className ="form-control" cols="30" rows="5" type='text' value={this.state.instructions} onChange={this.handleInsChange} />
                     </div>
                     <input value='submit' type='submit'/>
                 </form>
