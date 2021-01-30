@@ -7,9 +7,10 @@ import { createStore, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
 import manageRecipes from './reducers/manageRecipes';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { composeWithDevTools } from 'redux-devtools-extension'
 
-
-const store = createStore(manageRecipes,applyMiddleware(thunk))
+const composeEnhancer = composeWithDevTools(applyMiddleware(thunk))
+const store = createStore(manageRecipes,composeEnhancer)
 
 ReactDOM.render(
   

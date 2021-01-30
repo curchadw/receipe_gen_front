@@ -58,7 +58,7 @@ const mapStateToProps = state =>{
 
 const mapDispatchToProps = dispatch =>{
     return{
-    postRecipes: (recipe) => dispatch(postRecipes(recipe)),
+    postRecipes: recipe => dispatch(postRecipes(recipe)),
     getRecipes: () => dispatch(getRecipes()),
     deleteRecipe: recipeId => dispatch(deleteRecipe(recipeId))
     }

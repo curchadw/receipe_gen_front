@@ -1,3 +1,5 @@
+import { getRecipes } from "./getRecipes";
+
 export const postRecipes = (recipe) => {
   
     const BASE_URL = `http://localhost:3001`
@@ -12,10 +14,11 @@ export const postRecipes = (recipe) => {
     }
 
     return (dispatch) => {
-      
+      dispatch({ type: 'START_ADDING_RECIPE'});
       fetch(RECIPES_URL,config)
-        .then(response =>{ return response.json()})
-        .then(recipe => { dispatch({ type: 'Add_Recipe', payload: recipe })
+        .then(response =>{ response.json()})
+        .then(recipe => { dispatch({ type: 'ADD_RECIPE', payload: recipe })
+
         
     })
     .catch((error) => console.log.error(error))

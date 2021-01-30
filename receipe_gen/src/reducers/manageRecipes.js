@@ -9,15 +9,20 @@ export default function manageRecipes(state={
 
 
     switch(action.type){
-        case 'Add_Recipe':
-            let recipe = {
-                id: action.id,
+        case 'START_ADDING_RECIPE':
+            return{
+                ...state,
+                loading:true
+            }
+
+        case 'ADD_RECIPE':
+            const recipe = {
                 name: action.name,
                 ingredients: action.ingredients,
                 chef_name: action.chef_name,
                 origin: action.origin,
                 instructions: action.instructions,
-                category: action.category
+                category_id: action.category_id
                 
             }
            

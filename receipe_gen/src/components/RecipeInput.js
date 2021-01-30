@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import  Categories  from './Categories.js'
 import Select from 'react-select'
 import axios from 'axios'
 import '../index.css'
@@ -23,6 +22,9 @@ class RecipeInput extends Component{
 
         
     }
+
+
+      
 
     
     async getOptions(){
@@ -50,11 +52,11 @@ class RecipeInput extends Component{
         this.setState({name:event.target.value})
     }
 
-    handleInsChange = (event) => {
+    handleInsChange = (event) =>{
         this.setState({instructions:event.target.value})
     }
 
-    handleIngChange = (event) => {
+    handleIngChange = (event) =>{
         this.setState({ingredients:event.target.value})
     }
 
@@ -62,12 +64,13 @@ class RecipeInput extends Component{
         this.setState({chef_name:event.target.value})
     }
 
-    handleOriginChange = (event) => {
+    handleOriginChange = (event) =>{
         this.setState({origin:event.target.value})
     }
 
-    handleChange = (e) =>{
-        this.setState({category_id:e.id})
+    handleChange = (event) =>{
+        
+        this.setState({category_id:event.id})
     }
 
     componentDidMount(){
@@ -75,15 +78,18 @@ class RecipeInput extends Component{
     }
 
 
-    handleSubmit = (e) =>{
-        // e.preventDefault();
+    handleSubmit = (event) =>{
+        alert(this.state.name + 'was set!')
+        event.preventDefault();
         this.props.postRecipes(this.state)
         this.setState({
         name:'',
         ingredients: '',
         chef_name: '',
-        origin: ''
-     })
+        origin: '',
+        instructions: ''
+       })
+     
      
     }
 
@@ -98,7 +104,7 @@ class RecipeInput extends Component{
   
         return(
             <div>
-                <p>1. American, 2. Seafood, 3. Italian, 4. Keto, 5. Asian, 6. Mexican, 7. International</p>
+                
                 <form onSubmit={this.handleSubmit}>
                     <Select options={this.state.category_id} onChange={this.handleChange} className={dropdown}/>
                     <div>
