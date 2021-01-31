@@ -11,9 +11,7 @@ import '../index.css'
 
 
 class RecipesContainer extends Component{
-    constructor(props){
-        super(props)
-    }
+    
 
     componentDidMount(){
         this.props.getRecipes()
@@ -34,10 +32,11 @@ class RecipesContainer extends Component{
     render(){
       
         return (
-          <div>
+        <div>
                <h2>Create a Recipe!</h2>
                <RecipeInput postRecipes={this.props.postRecipes} /> 
                {this.handleLoading()}
+              
            
         </div>
         )

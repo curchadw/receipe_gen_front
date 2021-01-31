@@ -18,11 +18,11 @@ export default function manageRecipes(state={
         case 'ADD_RECIPE':
             const recipe = {
                 name: action.name,
-                ingredients: action.ingredients,
-                chef_name: action.chef_name,
-                origin: action.origin,
-                instructions: action.instructions,
-                category_id: action.category_id
+                ingredients: action.payload.ingredients,
+                chef_name: action.payload.chef_name,
+                origin: action.payload.origin,
+                instructions: action.payload.instructions,
+                category_id: action.payload.category_id
                 
             }
            
@@ -38,14 +38,14 @@ export default function manageRecipes(state={
             loading: true 
             }
 
-            case 'DELETE_RECIPE_SUCCESS':
+        case 'DELETE_RECIPE_SUCCESS':
                 
-                const recipes = state.recipes.filter(recipe => recipe.id !== action.payload)
-                console.log(state.recipes)
-                return {
+            const recipes = state.recipes.filter(recipe => recipe.id !== action.payload)
+            console.log(state.recipes)
+            return {
                     ...state, recipes,
                    loading: false
-                }
+            }
             
             
 
@@ -62,10 +62,7 @@ export default function manageRecipes(state={
             }
         
        
-        case 'Get_Categories':
-            // const category = {
-            //     category_id: action.category_id
-            // }    
+        case 'GET_CATEGORIES':
             return{
                 ...state, category_id: action.category_id,
                 requesting: false

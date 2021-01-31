@@ -34,13 +34,8 @@ class RecipeInput extends Component{
         const data = res.data
 
         const options = data.map(d => ({
-           
-            
-           
             'label' : d.category,
             'id' : d.id
-
-            
         }))
 
         this.setState({category_id: options})
@@ -79,18 +74,8 @@ class RecipeInput extends Component{
 
 
     handleSubmit = (event) =>{
-        alert(this.state.name + 'was set!')
         event.preventDefault();
         this.props.postRecipes(this.state)
-        this.setState({
-        name:'',
-        ingredients: '',
-        chef_name: '',
-        origin: '',
-        instructions: ''
-       })
-     
-     
     }
 
     
@@ -117,13 +102,11 @@ class RecipeInput extends Component{
                     </div>
                     <div>
                     <label for='name'>Chef Name:</label>
-                    
                     <input className ="form-control" type='text' value={this.state.chef_name} onChange={this.handleChefChange} />
                     </div>
                     <div>
                     <label for='name'>Ingredients:</label>
                     <textarea className ="form-control" cols="30" rows="5" type='text' value={this.state.ingredients} onChange={this.handleIngChange} />
-                    
                     <label for='name'>Instructions:</label>
                     <textarea className ="form-control" cols="30" rows="5" type='text' value={this.state.instructions} onChange={this.handleInsChange} />
                     </div>

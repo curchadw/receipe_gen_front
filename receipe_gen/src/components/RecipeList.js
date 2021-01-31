@@ -14,9 +14,9 @@ render() {
     
       
     <div>
-      <container className={flex}>
+      <div className={flex}>
           {recipes.map(recipe => <Recipe recipe={recipe} deleteRecipe={this.props.deleteRecipe} key={recipe.id} /> )}
-      </container>
+      </div>
     </div>
    )
     

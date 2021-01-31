@@ -6,8 +6,8 @@ export const getCategories = () => {
     return (dispatch) => {
       dispatch({ type: 'START_FETCHING_CATEGORIES_REQUEST' });
       fetch(CATEGORIES_URL)
-        .then(response =>{ return response.json()})
-        .then(category_id => { return console.log(category_id), dispatch({ type: 'Get_Categories', category_id })});
+        .then(response =>{ response.json()})
+        .then(category_id => { dispatch({ type: 'GET_CATEGORIES', category_id })});
        
         
     };
