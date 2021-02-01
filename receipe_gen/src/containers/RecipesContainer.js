@@ -2,7 +2,8 @@ import React, { Component } from 'react'
 import RecipeList from '../components/RecipeList'
 import RecipeInput from '../components/RecipeInput'
 import { connect } from 'react-redux'
-import { postRecipes } from '../actions/postRecipes.js'
+// import { postRecipes } from '../actions/postRecipes.js'
+import { createRecipe } from '../actions/postRecipes.js'
 import { getRecipes } from '../actions/getRecipes'
 import { deleteRecipe } from '../actions/deleteRecipe'
 import '../index.css'
@@ -57,7 +58,8 @@ const mapStateToProps = state =>{
 
 const mapDispatchToProps = dispatch =>{
     return{
-    postRecipes: recipe => dispatch(postRecipes(recipe)),
+    // postRecipes: recipe => dispatch(postRecipes(recipe)),
+    postRecipes: recipe => dispatch(createRecipe(recipe)),
     getRecipes: () => dispatch(getRecipes()),
     deleteRecipe: recipeId => dispatch(deleteRecipe(recipeId))
     }

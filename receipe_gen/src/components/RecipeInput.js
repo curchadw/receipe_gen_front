@@ -28,7 +28,7 @@ class RecipeInput extends Component{
 
     
     async getOptions(){
-        const BASE_URL = `http://localhost:3001`
+        const BASE_URL = `http://localhost:3002`
         const CATEGORIES_URL =`${BASE_URL}/categories`
         const res = await axios.get(CATEGORIES_URL)
         const data = res.data
@@ -75,7 +75,14 @@ class RecipeInput extends Component{
 
     handleSubmit = (event) =>{
         event.preventDefault();
+        // debugger
         this.props.postRecipes(this.state)
+        this.handleReset()
+              
+    }
+
+    handleReset = () =>{
+        this.setState({ name:'', ingredients: '', chef_name: '', origin: '',instructions: '',category_id:''})
     }
 
     
@@ -90,25 +97,25 @@ class RecipeInput extends Component{
         return(
             <div>
                 
-                <form onSubmit={this.handleSubmit}>
-                    <Select options={this.state.category_id} onChange={this.handleChange} className={dropdown}/>
+                <form onSubmit={(event)=>this.handleSubmit(event)}>
+                    <Select options={this.state.category_id} onChange={(event)=>this.handleChange(event)} className={dropdown}/>
                     <div>
-                    <label for='name'>Recipe Name:</label>
-                    <input  className ="form-control" type='text' value={this.state.name} onChange={this.handleNameChange} />
+                    <label htmlFor='name'>Recipe Name:</label>
+                    <input  className ="form-control" type='text' value={this.state.name} onChange={(event)=>this.handleNameChange(event)} />
                     </div>
                     <div>
-                    <label for='name'>Country Origin:</label>
-                    <input className ="form-control" type='text' value={this.state.origin} onChange={this.handleOriginChange} />
+                    <label htmlFor='name'>Country Origin:</label>
+                    <input className ="form-control" type='text' value={this.state.origin} onChange={(event)=>this.handleOriginChange(event)} />
                     </div>
                     <div>
-                    <label for='name'>Chef Name:</label>
-                    <input className ="form-control" type='text' value={this.state.chef_name} onChange={this.handleChefChange} />
+                    <label htmlFor='name'>Chef Name:</label>
+                    <input className ="form-control" type='text' value={this.state.chef_name} onChange={(event)=>this.handleChefChange(event)} />
                     </div>
                     <div>
-                    <label for='name'>Ingredients:</label>
-                    <textarea className ="form-control" cols="30" rows="5" type='text' value={this.state.ingredients} onChange={this.handleIngChange} />
-                    <label for='name'>Instructions:</label>
-                    <textarea className ="form-control" cols="30" rows="5" type='text' value={this.state.instructions} onChange={this.handleInsChange} />
+                    <label htmlFor='name'>Ingredients:</label>
+                    <textarea className ="form-control" cols="30" rows="5" type='text' value={this.state.ingredients} onChange={(event)=>this.handleIngChange(event)} />
+                    <label htmlFor='name'>Instructions:</label>
+                    <textarea className ="form-control" cols="30" rows="5" type='text' value={this.state.instructions} onChange={(event)=>this.handleInsChange(event)} />
                     </div>
                     <input value='submit' type='submit'/>
                 </form>

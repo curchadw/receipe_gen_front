@@ -1,5 +1,6 @@
 // import cuid from 'cuid';
 // export const cuidFn = cuid
+import { ADD_RECIPE } from '../actions/types';
 
 export default function manageRecipes(state={
     loading: false,
@@ -15,20 +16,23 @@ export default function manageRecipes(state={
                 loading:true
             }
 
-        case 'ADD_RECIPE':
+        case ADD_RECIPE:
             const recipe = {
                 name: action.name,
-                ingredients: action.payload.ingredients,
-                chef_name: action.payload.chef_name,
-                origin: action.payload.origin,
-                instructions: action.payload.instructions,
-                category_id: action.payload.category_id
+                ingredients: action.ingredients,
+                chef_name: action.chef_name,
+                origin: action.origin,
+                instructions: action.instructions,
+                category_id: action.category_id
                 
             }
+
+           
            
             return{
-                ...state,
-                recipes: [...state.recipes, recipe],
+                 ...state,
+                 recipes: [...state.recipes, recipe],
+                
                 loading: false
             }
         case 'DELETING_RECIPE_START': 

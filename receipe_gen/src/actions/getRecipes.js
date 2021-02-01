@@ -1,11 +1,8 @@
 export const getRecipes = () => {
   
-    const BASE_URL = `http://localhost:3001`
+    const BASE_URL = `http://localhost:3002`
     const RECIPES_URL =`${BASE_URL}/recipes`
-    const headers = {
-      "Access-Control-Allow-Origin": "*",
-      "Content-Type": "application/json"
-    }
+    
     return (dispatch) => {
       dispatch({ type: 'START_FETCHING_RECIPES_REQUEST' });
       fetch(RECIPES_URL)

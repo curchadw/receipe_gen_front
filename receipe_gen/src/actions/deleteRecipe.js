@@ -1,6 +1,6 @@
 
 export const deleteRecipe = (recipeId) =>{
-    const BASE_URL = `http://localhost:3001`
+    const BASE_URL = `http://localhost:3002`
     const RECIPES_URL =`${BASE_URL}/recipes`
 
     

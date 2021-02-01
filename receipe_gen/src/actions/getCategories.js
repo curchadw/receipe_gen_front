@@ -1,6 +1,6 @@
 export const getCategories = () => {
   
-    const BASE_URL = `http://localhost:3001`
+    const BASE_URL = `http://localhost:3002`
     const CATEGORIES_URL =`${BASE_URL}/categories`
 
     return (dispatch) => {
