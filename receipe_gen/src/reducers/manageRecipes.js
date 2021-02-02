@@ -1,11 +1,12 @@
 // import cuid from 'cuid';
 // export const cuidFn = cuid
-import { ADD_RECIPE } from '../actions/types';
+//import { ADD_RECIPE } from '../actions/types';
 
 export default function manageRecipes(state={
     loading: false,
     recipes:[],
     category_id:[],
+    error: false
 }, action){
 
 
@@ -16,7 +17,7 @@ export default function manageRecipes(state={
                 loading:true
             }
 
-        case ADD_RECIPE:
+        case 'ADD_RECIPE':
             const recipe = {
                 name: action.name,
                 ingredients: action.ingredients,
@@ -27,6 +28,7 @@ export default function manageRecipes(state={
                 
             }
 
+
            
            
             return{
@@ -34,6 +36,14 @@ export default function manageRecipes(state={
                  recipes: [...state.recipes, recipe],
                 
                 loading: false
+            }
+
+
+        case 'ADD_RECIPE_FAILURE':
+            return {
+                ...state,
+                loading: false,
+                error: action.error
             }
         case 'DELETING_RECIPE_START': 
             return {
