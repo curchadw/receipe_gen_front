@@ -19,12 +19,12 @@ export default function manageRecipes(state={
 
         case 'ADD_RECIPE':
             const recipe = {
-                name: action.name,
-                ingredients: action.ingredients,
-                chef_name: action.chef_name,
-                origin: action.origin,
-                instructions: action.instructions,
-                category_id: action.category_id
+                name: action.payload.name,
+                ingredients: action.payload.ingredients,
+                chef_name: action.payload.chef_name,
+                origin: action.payload.origin,
+                instructions: action.payload.instructions,
+                category_id: action.payload.category_id
                 
             }
 

@@ -26,7 +26,8 @@ export const postRecipes = (recipe) => {
           
         }
         else{
-            return dispatch({type: 'ADD_RECIPE', recipe: recipe})
+            console.log({recipe})
+            return dispatch({type: 'ADD_RECIPE', payload: recipe})
         }
       })
       // .then(res => { dispatch({ type: 'ADD_RECIPE', recipe: res })})
