@@ -62,3 +62,9 @@ footer{
   color: white;
   text-align: center;
 }
+
+.error{
+  color:#db2269;
+  font-size: 0.625em;
+  display: relative;
+}

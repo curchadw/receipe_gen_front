@@ -1,21 +1,25 @@
 import React, { Component } from 'react'
 import Select from 'react-select'
 import axios from 'axios'
+import { validEmailRegex, validateForm } from '../validations/formvalidation'
 import '../index.css'
 
 
 
 class RecipeInput extends Component{
+
+   
     constructor(props){
         super(props)
         this.state = {
-            
             category_id: [],
             name:'',
-            ingredients: '',
-            chef_name: '',
-            origin: '',
-            instructions:''
+            ingredients:'',
+            chef_name:'',
+            origin:'',
+            instructions:'',
+            value:''
+            
             
         }
         
@@ -41,11 +45,18 @@ class RecipeInput extends Component{
         this.setState({category_id: options})
     }
 
+
+
     
 
-    handleNameChange = (event) =>{
+    
+
+    
+
+    handleName = (event) =>{
         this.setState({name:event.target.value})
     }
+
 
     handleInsChange = (event) =>{
         this.setState({instructions:event.target.value})
@@ -63,7 +74,7 @@ class RecipeInput extends Component{
         this.setState({origin:event.target.value})
     }
 
-    handleChange = (event) =>{
+    handleSelect = (event) =>{
         
         this.setState({category_id:event.id})
     }
@@ -73,51 +84,48 @@ class RecipeInput extends Component{
     }
 
 
+    handleReset = () =>{
+        this.setState({ name:'', ingredients: '', chef_name: '', origin: '',instructions: '',category_id:''})
+    }
+
+   
+
     handleSubmit = (event) =>{
         event.preventDefault();
-        // debugger
         this.props.postRecipes(this.state)
         this.handleReset()
               
     }
 
-    handleReset = () =>{
-        this.setState({ name:'', ingredients: '', chef_name: '', origin: '',instructions: '',category_id:''})
-    }
-
     
-
-    
-    
-        
 
     render(){
        let dropdown = 'form-select form-select-sm'
-  
         return(
             <div>
                 
-                <form onSubmit={(event)=>this.handleSubmit(event)}>
-                    <Select options={this.state.category_id} onChange={(event)=>this.handleChange(event)} className={dropdown}/>
-                    <div>
+                <form onSubmit={(event)=>this.handleSubmit(event)} noValidate>
+                    <Select ref={ref => {
+            this.selectRef = ref}} options={this.state.category_id ? this.state.category_id : ''} onChange={(event)=>this.handleSelect(event)} className={dropdown}/>
+                    <div className='name'>
                     <label htmlFor='name'>Recipe Name:</label>
-                    <input  className ="form-control" type='text' value={this.state.name} onChange={(event)=>this.handleNameChange(event)} />
+                    <input formName='name' className ="form-control" type='text' value={this.state.name} onChange={(event)=>this.handleName(event)} />
                     </div>
                     <div>
-                    <label htmlFor='name'>Country Origin:</label>
+                    <label htmlFor='origin'>Country Origin:</label>
                     <input className ="form-control" type='text' value={this.state.origin} onChange={(event)=>this.handleOriginChange(event)} />
                     </div>
                     <div>
-                    <label htmlFor='name'>Chef Name:</label>
+                    <label htmlFor='chef_name'>Chef Name:</label>
                     <input className ="form-control" type='text' value={this.state.chef_name} onChange={(event)=>this.handleChefChange(event)} />
                     </div>
                     <div>
-                    <label htmlFor='name'>Ingredients:</label>
+                    <label htmlFor='ingredients'>Ingredients:</label>
                     <textarea className ="form-control" cols="30" rows="5" type='text' value={this.state.ingredients} onChange={(event)=>this.handleIngChange(event)} />
-                    <label htmlFor='name'>Instructions:</label>
+                    <label htmlFor='instructions'>Instructions:</label>
                     <textarea className ="form-control" cols="30" rows="5" type='text' value={this.state.instructions} onChange={(event)=>this.handleInsChange(event)} />
                     </div>
-                    <input value='submit' type='submit'/>
+                    <input value='submit' type='submit' />
                 </form>
                 
             </div>
