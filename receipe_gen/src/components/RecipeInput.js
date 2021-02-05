@@ -105,8 +105,7 @@ class RecipeInput extends Component{
             <div>
                 
                 <form onSubmit={(event)=>this.handleSubmit(event)} noValidate>
-                    <Select ref={ref => {
-            this.selectRef = ref}} options={this.state.category_id ? this.state.category_id : ''} onChange={(event)=>this.handleSelect(event)} className={dropdown}/>
+                    <Select options={this.state.category_id ? this.state.category_id : ''} onChange={(event)=>this.handleSelect(event)} className={dropdown}/>
                     <div className='name'>
                     <label htmlFor='name'>Recipe Name:</label>
                     <input formName='name' className ="form-control" type='text' value={this.state.name} onChange={(event)=>this.handleName(event)} />
