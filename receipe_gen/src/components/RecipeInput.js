@@ -94,6 +94,7 @@ class RecipeInput extends Component{
         event.preventDefault();
         this.props.postRecipes(this.state)
         this.handleReset()
+        this.getOptions()
               
     }
 
