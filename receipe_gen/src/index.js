@@ -9,6 +9,7 @@ import manageRecipes from './reducers/manageRecipes';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { composeWithDevTools } from 'redux-devtools-extension'
 
+
 const composeEnhancer = composeWithDevTools(applyMiddleware(thunk))
 const store = createStore(manageRecipes,composeEnhancer)
 

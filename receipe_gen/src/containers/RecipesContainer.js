@@ -33,7 +33,7 @@ class RecipesContainer extends Component{
     render(){
       
         return (
-        <div>
+        <div className='recipe_con'>
                <h2>Create a Recipe!</h2>
                <RecipeInput postRecipes={this.props.postRecipes} /> 
                {this.handleLoading()}

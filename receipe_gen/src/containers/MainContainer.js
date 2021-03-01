@@ -15,17 +15,17 @@ class MainContainer extends Component{
         let maincontent = 'main'
         return(
         <Router>   
-        <div>
+        <div className='main_comp'>
             <nav>
-                <ul>
+                <ul className='nav_links'>
                 <li>
-                    <Link to="/">Home</Link>
+                    <Link to="/"><h3>Home</h3></Link>
                 </li>
                 <li>
-                    <Link to="/about">About</Link>
+                    <Link to="/about"><h3>About</h3></Link>
                 </li>
                 <li>
-                    <Link to="/recipes">Recipes</Link>
+                    <Link to="/recipes"><h3>Recipes</h3></Link>
                 </li>
                 </ul>
             </nav>
